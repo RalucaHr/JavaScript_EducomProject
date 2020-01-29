@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>All Assignments Per Student</title>
+    <link rel="stylesheet" href="Style.css">
+    <link rel='shortcut icon' href='favicon.ico' type='image/x-icon' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.awesomefunctions.com/awesome-functions.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="sidenav">
+        <br />
+        <p>EDU<strong>COM</strong></p>
+        <br />
+        <a href="Courses.html">Courses</a>
+        <a href="Trainers.html">Trainers</a>
+        <a href="Students.html">Students</a>
+        <a href="Assignments.html">Assignments</a>
+        <button class="dropdown-btn">
+            Per Course
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+            <a href="TrainersPerCourse.html">Trainers</a>
+            <a href="StudentsPerCourse.html">Students</a>
+            <a href="AssignmentsPerCourse.html">Assignments</a>
+        </div>
+        <a href="AssignmentsPerStudentPerCourse.html">Per Student Per Course</a>
+    </div>
+    <br /><br />
+    <div class="main">
+
+        <h1 class="text-center">ASSIGNMENTS PER STUDENT PER COURSE<strong> .DETAILS</strong></h1>
+        <!--[Menu - Start]-->
+        <div class="text-center">
+
+            <div class="btn btn-dark BTN_Add_New_ASC"> Add New Student</div>
+
+            <div class="btn btn-dark BTN_View_ASC"> View All Students</div>
+
+            <div class="btn btn-dark BTN_Delete_All_ASC"> Delete All Students</div>
+            <br><br>
+                <p>
+                    Enter Course : <input type="text" id="myInput1" onkeyup="myFunction1()" placeholder="Course Title" title="Type in a course"> 
+                          Enter Assignment : <input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="Assignment Title" title="Type in an assignment">
+                </p>
+            <br />
+        </div>
+        <!--[Menu - End]-->
+        <br><br>
+
+        <!--[Screen Data - Start]-->
+        <div class=" container Screen Screen_Data  ">  </div>
+        <!--[Screen Data - End]-->
+        <!--[New Entry Template - Start]-->
+        <div class="Screen Template_New" style="display:none;">
+
+            <div class="panel panel-primary center-block" style="max-width:400px;">
+
+                <div class="panel-heading text-left"><strong>Student Details</strong></div>
+                <br />
+
+                <!--[New Entry Body - Start]-->
+                <div class="panel-body">
+
+                    <form action="/" method="get">
+                        <div class="form-group">
+                            <label for="fname">First Name:</label>
+                            <input type="text" class="form-control FirstName" id="fname" maxlength="35" pattern="[A-zΑ-ω ]{2,}" placeholder="Enter first name" name="fname" required>
+                            <div class="valid-feedback"></div>
+                            <div class="invalid-feedback">Name can contain only letters. Please try again.</div>
+                        </div>
+                        <br><br>
+                        <div class="form-group">
+                            <label for="lname">Last Name:</label>
+                            <input type="text" class="form-control LastName" id="lname" maxlength="35" pattern="[A-zΑ-ω ]{2,}" placeholder="Enter last name" name="lname" required>
+                            <div class="valid-feedback"></div>
+                            <div class="invalid-feedback">Name can contain only letters. Please try again.</div>
+                        </div>
+                        <br><br>                        
+                        <div class="form-group">
+                            <label for="courses">Select Course:</label>
+                            <input list="courses" class="form-control Course" id="course" name="courses" required>
+                            <datalist id="courses">
+                                <option value="CB8 Csharp Full Time"></option>
+                                <option value="CB8 Csharp Part Time"></option>
+                                <option value="CB8 Java Full Time"></option>
+                                <option value="CB8 Java Part Time"></option>
+                            </datalist>
+                            <div class="valid-feedback"></div>
+                            <div class="invalid-feedback">Something went wrong. Please select a course.</div>
+                        </div>
+                        <br><br>
+                        <div class="form-group form-check">
+                            <label for="assignment">Select Assignments:</label><br>
+                            <input type="checkbox" class="form-check-input Assignment" name="Assignment" value="Individual Project" id="assignment"> Assignment no1 - Individual Project<br>
+                            <input type="checkbox" class="form-check-input Assignment" name="Assignment" value="HTML" id="assignment"> Assignment no2 - HTML<br>
+                            <input type="checkbox" class="form-check-input Assignment" name="Assignment" value="MVC" id="assignment"> Assignment no3 - MVC<br>
+                            <input type="checkbox" class="form-check-input Assignment" name="Assignment" value="Design Patterns" id="assignment"> Assignment no4 - Design Patterns<br>
+                            <div class="valid-feedback"></div>
+                            <div class="invalid-feedback">Something went wrong. Please select an assignment.</div>
+                        </div>
+                        <br><br>
+                        <button type="submit" class="btn btn-dark text-center btn_Data">Save new</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                        <br /><br />
+                    </form>
+
+                </div>
+                <!--[New Entry Body - End]-->
+
+            </div>
+        </div>
+    </div>
+
+    <script src="Main.js"></script>
+    <script>
+        // TABLE FILTER FOR COURSE
+        function myFunction1() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput1");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[3];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        // TABLE FILTER FOR ASSIGNMENT
+        function myFunction2() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput2");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[4];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        // DROPDOWN MENU
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+
+        for (i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === "block") {
+                    dropdownContent.style.display = "none";
+                } else {
+                    dropdownContent.style.display = "block";
+                }
+            });
+        }
+    </script>
+</body>
+</html>

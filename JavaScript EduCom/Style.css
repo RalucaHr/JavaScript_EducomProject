@@ -1,0 +1,291 @@
+﻿
+/* Fixed sidenav, full height */
+.sidenav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+    /* Style the sidenav links and the dropdown button */
+    .sidenav a, .dropdown-btn {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 20px;
+        color: #818181;
+        display: block;
+        border: none;
+        background: none;
+        width: 100%;
+        text-align: left;
+        cursor: pointer;
+        outline: none;
+    }
+
+        /* On mouse-over */
+        .sidenav a:hover, .dropdown-btn:hover {
+            color: #f1f1f1;
+            text-decoration: none;
+        }
+
+    .sidenav p {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 34px;
+        color: white;
+        display: block;
+        border: none;
+        background: none;
+        width: 100%;
+        text-align: left;
+        outline: none;
+    }
+/* Main content */
+.main {
+    margin-left: 250px; /* Same as the width of the sidenav */
+    font-size: 20px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+    background-color: green;
+    color: white;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+    display: none;
+    background-color: #262626;
+    padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+    float: right;
+    padding-right: 8px;
+}
+
+/* Some media queries for responsiveness */
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+}
+
+
+body {
+    background: #34495e;
+    font: normal 300 18px "Roboto", sans-serif;
+}
+
+#menu-nav {
+    width: 100%;
+    margin: 0px;
+    background-color: #ecf0f1;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+#navigation-bar img {
+    width: 55px;
+    height: 75px;
+}
+
+#navigation-bar ul {
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#navigation-bar li {
+    float: left;
+    width: 20%;
+}
+
+    #navigation-bar li:hover a::before {
+        right: 0;
+        left: 0;
+    }
+
+#navigation-bar a {
+    color: #848484;
+    font-size: 22px;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    padding: 18px 0;
+    display: block;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+    #navigation-bar a:hover {
+        color: #801E33;
+    }
+
+    #navigation-bar a::before {
+        content: "";
+        transition: all 0.4s ease-in-out;
+        position: absolute;
+        right: 50%;
+        left: 50%;
+        bottom: 0;
+        height: 2px;
+        background-color: #801E33;
+    }
+
+    #navigation-bar a:hover::before {
+        right: 0;
+        left: 0;
+    }
+
+li {
+    list-style: none;
+}
+
+div.table-title {
+    display: block;
+    margin: auto;
+    max-width: 94%;
+    padding: 5px;
+    width: 100%;
+}
+
+.table-title h3 {
+    text-align: left;
+    color: #848484;
+    font-size: 22px;
+    font-weight: 500;
+    font-style: normal;
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+}
+
+
+/*** Table Styles **/
+
+.table-fill {
+    background: white;
+    border-radius: 3px;
+    border-collapse: collapse;
+    height: 220px;
+    margin: auto;
+    max-width: 94%;
+    padding: 5px;
+    width: 100%;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    animation: float 5s infinite;
+}
+
+.table-fill th {
+    color: #D5DDE5;
+    background: #801E33;
+    border-bottom: 5px solid #9ea7af;
+    border-right: 1px solid #343a45;
+    font-size: 23px;
+    font-weight: 100;
+    padding: 12px;
+    text-align: left;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    vertical-align: middle;
+}
+
+th:first-child {
+    border-top-left-radius: 3px;
+}
+
+th:last-child {
+    border-top-right-radius: 3px;
+    border-right: none;
+}
+
+tr {
+    border-top: 1px solid #C1C3D1;
+    border-bottom: 1px solid #C1C3D1;
+    color: #666B85;
+    max-width: 94%;
+    font-size: 16px;
+    font-weight: normal;
+    text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+}
+
+    tr:hover td {
+        background: #4E5066;
+        color: #FFFFFF;
+        border-top: 1px solid #22262e;
+    }
+
+    tr:first-child {
+        border-top: none;
+    }
+
+    tr:last-child {
+        border-bottom: none;
+    }
+
+    tr:nth-child(odd) td {
+        background: #EBEBEB;
+    }
+
+    tr:nth-child(odd):hover td {
+        background: #4E5066;
+    }
+
+    tr:last-child td:first-child {
+        border-bottom-left-radius: 3px;
+    }
+
+    tr:last-child td:last-child {
+        border-bottom-right-radius: 3px;
+    }
+
+td {
+    background: #FFFFFF;
+    padding: 12px;
+    text-align: left;
+    vertical-align: middle;
+    font-weight: 300;
+    font-size: 18px;
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+    border-right: 1px solid #C1C3D1;
+}
+
+td:last-child {
+    border-right: 0px;
+}
+
+th.text-left {
+    text-align: left;
+}
+
+th.text-center {
+    text-align: center;
+}
+
+th.text-right {
+    text-align: right;
+}
+
+td.text-left {
+    text-align: left;
+}
+
+td.text-center {
+    text-align: center;
+}
+
+td.text-right {
+    text-align: right;
+}
+
+

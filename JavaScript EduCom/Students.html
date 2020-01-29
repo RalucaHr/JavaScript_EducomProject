@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>All Students</title>
+    <link rel="stylesheet" href="Style.css">
+    <link rel='shortcut icon' href='favicon.ico' type='image/x-icon' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.awesomefunctions.com/awesome-functions.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <div class="sidenav">
+        <br />
+        <p>EDU<strong>COM</strong></p>
+        <br />
+        <a href="Courses.html">Courses</a>
+        <a href="Trainers.html">Trainers</a>
+        <a href="Students.html">Students</a>
+        <a href="Assignments.html">Assignments</a>
+        <button class="dropdown-btn">
+            Per Course
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+            <a href="TrainersPerCourse.html">Trainers</a>
+            <a href="StudentsPerCourse.html">Students</a>
+            <a href="AssignmentsPerCourse.html">Assignments</a>
+        </div>
+        <a href="AssignmentsPerStudentPerCourse.html">Per Student Per Course</a>
+    </div>
+    <br /><br />
+    <div class="main">
+
+        <h1 class="text-center">STUDENTS<strong> .DETAILS</strong></h1>
+        <!--[Menu - Start]-->
+        <div class="text-center">
+
+            <div class="btn btn-dark BTN_Add_New_Student"> Add New Student</div>
+
+            <div class="btn btn-dark BTN_View_Students"> View All Students</div>
+
+            <div class="btn btn-dark BTN_Delete_All_Students"> Delete All Students</div>
+
+        </div>
+        <!--[Menu - End]-->
+        <br><br>
+
+        <!--[Screen Data - Start]-->
+        <div class=" container Screen Screen_Data  ">  </div>
+        <!--[Screen Data - End]-->
+        <!--[New Entry Template - Start]-->
+        <div class="Screen Template_New" style="display:none;">
+
+            <div class="panel panel-primary center-block" style="max-width:400px;">
+
+                <div class="panel-heading text-left"><strong>Student Details</strong></div>
+                <br />
+
+                <!--[New Entry Body - Start]-->
+                <div class="panel-body">
+
+                    <form action="/" method="get">
+                        <div class="form-group">
+                            <label for="fname">First Name:</label>
+                            <input type="text" class="form-control FirstName" id="fname" maxlength="35" pattern="[A-zΑ-ω ]{2,}" placeholder="Enter first name" name="fname" required>
+                            <div class="valid-feedback"></div>
+                            <div class="invalid-feedback">Name can contain only letters. Please try again.</div>
+                        </div>
+                        <br><br>
+                        <div class="form-group">
+                            <label for="lname">Last Name:</label>
+                            <input type="text" class="form-control LastName" id="lname" maxlength="35" pattern="[A-zΑ-ω ]{2,}" placeholder="Enter last name" name="lname" required>
+                            <div class="valid-feedback"></div>
+                            <div class="invalid-feedback">Name can contain only letters. Please try again.</div>
+                        </div>
+                        <br><br>
+                        <div class="form-group">
+                            <label for="dateOfBirth">Date Of Birth:</label>
+                            <input type="date" class="form-control DateOfBirth" id="dob" max="2009-12-31" min="1940-01-01" placeholder="Enter date of birth" name="dob" required>
+                            <div class="valid-feedback"></div>
+                            <div class="invalid-feedback">Please select the correct date.</div>
+                        </div>
+                        <br><br>
+                        <div class="form-group">
+                            <label for="tfees">Tuittion Fees:</label>
+                            <input type="number" class="form-control TuittionFees" id="tfees" min="0" max="100000" placeholder="Enter tuittion fees" name="tfees" required>
+                            <div class="valid-feedback"></div>
+                            <div class="invalid-feedback">Something went wrong. Please enter the correct amount.</div>
+                        </div>
+                        <br><br>
+                        <button type="submit" class="btn btn-dark text-center btn_Data">Save new</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                        <br /><br />
+                    </form>
+
+                </div>
+                <!--[New Entry Body - End]-->
+
+            </div>
+        </div>
+    </div>
+    <script src="Main.js"></script>
+    <script>
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+
+        for (i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === "block") {
+                    dropdownContent.style.display = "none";
+                } else {
+                    dropdownContent.style.display = "block";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
